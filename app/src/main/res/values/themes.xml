@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.QuizImages" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/primaire</item>
+        <item name="colorOnPrimary">@color/sur_primaire</item>
+        <item name="android:windowBackground">@color/fond</item>
+    </style>
+</resources>

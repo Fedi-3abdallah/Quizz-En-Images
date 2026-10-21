@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Quiz en images</string>
+    <string name="titre">Quiz en images</string>
+    <string name="score_format">Score : %1$d / %2$d</string>
+    <string name="numero_format">Question %1$d sur %2$d</string>
+    <string name="bonne_reponse">✔ Bonne réponse ! +1 point</string>
+    <string name="mauvaise_reponse_format">✘ Mauvaise réponse. La bonne réponse était : %1$s</string>
+    <string name="reponse_enregistree_format">Réponse enregistrée. La bonne réponse était : %1$s</string>
+    <string name="question_suivante">Question suivante</string>
+    <string name="voir_resultat">Voir le résultat</string>
+    <string name="rejouer">Rejouer</string>
+    <string name="resultat_titre">Partie terminée</string>
+    <string name="resultat_format">Votre score final : %1$d / %2$d</string>
+    <string name="progression_desc">Progression du quiz</string>
+</resources>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Écran unique du quiz : bandeau fixe (titre + score + progression) puis zone défilante -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <!-- Bandeau fixe : le titre à gauche, le score en haut à droite -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primaire"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/txt_titre"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/titre"
+            android:textColor="@color/sur_primaire"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/sur_primaire"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="Score : 0 / 5" />
+    </LinearLayout>
+
+    <!-- Progression = nombre de questions auxquelles on a répondu -->
+    <ProgressBar
+        android:id="@+id/progress_quiz"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/progression_desc"
+        android:max="5"
+        android:progress="0" />
+
+    <!-- Zone défilante pour les petits écrans -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Zone de jeu (masquée à la fin de la partie) -->
+            <LinearLayout
+                android:id="@+id/zone_jeu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_numero"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/texte"
+                    android:textSize="16sp"
+                    tools:text="Question 1 sur 5" />
+
+                <ImageView
+                    android:id="@+id/img_question"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="12dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/triangle" />
+
+                <TextView
+                    android:id="@+id/txt_question"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:textColor="@color/texte"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:text="Combien de côtés a cette forme ?" />
+
+                <Button
+                    android:id="@+id/btn_choix1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    tools:text="Choix 1" />
+
+                <Button
+                    android:id="@+id/btn_choix2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="Choix 2" />
+
+                <Button
+                    android:id="@+id/btn_choix3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="Choix 3" />
+
+                <!-- Retour sur la réponse : texte + symbole (la couleur n'est qu'un complément) -->
+                <TextView
+                    android:id="@+id/txt_feedback"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:visibility="invisible"
+                    tools:text="✔ Bonne réponse ! +1 point"
+                    tools:visibility="visible" />
+
+                <Button
+                    android:id="@+id/btn_suivant"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:enabled="false"
+                    android:text="@string/question_suivante" />
+            </LinearLayout>
+
+            <!-- Zone de résultat final (dans le même layout) -->
+            <LinearLayout
+                android:id="@+id/zone_resultat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/resultat_titre"
+                    android:textColor="@color/texte"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_resultat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textColor="@color/primaire"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    tools:text="Votre score final : 4 / 5" />
+
+                <Button
+                    android:id="@+id/btn_rejouer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/rejouer" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
